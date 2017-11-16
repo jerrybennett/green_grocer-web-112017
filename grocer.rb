@@ -1,9 +1,24 @@
+require 'pry'
 def consolidate_cart(cart)
-  # code here
+  produce = cart.inject({}) do |hash, food|
+    item = food.keys.first
+    hash[item] ||= food[item].merge(count: 0)
+    hash[item][:count] += 1
+    hash
+  end
 end
 
 def apply_coupons(cart, coupons)
-  # code here
+  coupon_arr = {}
+  coupons.each do |coupon|
+    cart.each do |item|
+      if coupon[:item] == item[0]
+        cart = {"#{coupon[:item]} W/COUPON"}
+      end
+
+    end
+  end
+  binding.pry
 end
 
 def apply_clearance(cart)
