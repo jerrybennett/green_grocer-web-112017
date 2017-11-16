@@ -13,7 +13,9 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     cart.each do |item|
       if coupon[:item] == item[0]
-        cart = {"#{coupon[:item]} W/COUPON"}{:price => 5.0, :clearance => true, :count => 1}
+        cart = {"#{coupon[:item]} W/COUPON" => {:price[coupon[:cost]], }}
+        {:item => "AVOCADO", :num => 2, :cost => 5.0}
+        {:price => 5.0, :clearance => true, :count => 1}
       end
 
     end
